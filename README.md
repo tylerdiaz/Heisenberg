@@ -96,7 +96,8 @@ We are excited to announce that after 24 hours of deep focus and dedication, we 
 
 Three separate portals (one for each predefined role) have been developed as a web app for doctors, patients, and pharmacists.  The interface leverages the ReactJS framework and pulls methods from the Web3.JS library to interact with the blockchain through the ABI.  
 
-To access the application, visit: 
+To access the application, download the [Metamask extension](https://github.com/MetaMask), create an account, and visit the following addresses: 
+  * <b>Doctor Portal</b> [Link.](http://34.201.43.128:3000/)
+  * <b>Patient Portal</b> [Link.](http://34.201.43.128:3001/)
+  
 
-
-## Thanks!
