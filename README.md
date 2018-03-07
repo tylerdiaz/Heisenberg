@@ -2,15 +2,16 @@
 
 ![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
 
-Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
+<b>Project Heisenberg</b> is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
 
-By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a pharmacuetical script we have removed an array of inefficiencies:
-  1. The possibility of counterfit/forged perscriptions is eliminated
-  2. An immutable record of the movement, quantity, identity, etc. of perscriptions is created
-  3. The possibilty for regulatory insight into the quantity, concentration, movement, etc. of drugs is enabled
-  4. Communication and trust between doctors, patients, and pharmaceys is improved
+By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a pharmacuetical script we have:
+  1. <b>Removed</b> the possibility of counterfit/forged perscriptions is eliminated
+  2. <b>Enabled</b> regulatory insight into the quantity, concentration, movement, etc. of drugs
+  3. <b>Created</b> an <i>immutable</i> record of the movement, quantity, and RX type of pharmacy scripts
   
 Project Heisenberg accomplishes this goal through the tokenization of pharmacuetical perscriptions into an ERC-721 solidity contract standar.  This non-fungible token carries metadata describing the doctor ID, the patient's public key, the drug RX Id, and the unit quantity to be dispensed.
+
+The code for the non-fungible token (ERC-721) is hosted here (link.). 
 
 The defined roles for this project scenario are as follows:
 [Image](3 Points)
@@ -23,7 +24,7 @@ The defined roles for this project scenario are as follows:
 ## Blockchain Network Architecture
 Project Heisenberg is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
 
-In production, the nodes would concievably be owned by pre-authorized public hospitals, regulatory authorites, etc. 
+In full production, the nodes would concievably be owned by pre-authorized public hospitals, regulatory authorites, etc. 
 
 A diagram of the azure-hosted architecture is shown below:
 
@@ -38,8 +39,7 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 
 ![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/consortiumRationale.PNG)
 
-The code for the non-fungible script is hosted here (link.). 
- 
+
 ## Problems associated with the paradigm state
 To better understand the current perscription paradigm, we consulted with an actal Pharmacist (name witheld) to learn more about security holes, pain-points, and inefficiencies associated with the current process.
 
