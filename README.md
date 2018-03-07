@@ -3,7 +3,7 @@ Solving prescription/pharmaceutical logistics using smart contracts
 
 [title](https://www.exampleUserFlow.jpg)
 
-Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the possibility of perscription fraud.
+Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
 
 By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a perscription we have solved a variety of problems.
   1. The possibility of counterfit/forged perscriptions is eliminated
@@ -14,25 +14,28 @@ By creating a decentralized smart-contract standard that defines the method for 
 Project Heisenberg accomplishes this goal through the tokenization of pharmacuetical perscriptions into an ERC-721 solidity contract standar.  This non-fungible token carries metadata describing the doctor ID, the patient's public key, the drug RX Id, and the unit quantity to be dispensed.
 
 The defined roles for this project scenario are as follows:
+[Image](3 Points)
   1. Doctor
   2. Patient
   3. Pharmacy
   
- [role description here]
+ [role descriptions here]
  
 ## System Architecture
-Project Heisenberg is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  In production, these nodes could be owned by pre-authorized hospitals, regulatory authorites, private medical practices, etc.  A diagram of the azure-hosted architecture is below.
+Project Heisenberg is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  In production, these nodes could be owned by pre-authorized public hospitals, regulatory authorites, etc.  The network id for peering is 347329323.  A diagram of the azure-hosted architecture is below.
 
-[Image](link.)
+[Image](architecture link)
 
 The rationale for choosing a Consortium Network architecture over the Public Mainnet are as follows:
-  1. <b>Cost</b>
-  2. <b>Permissoned Privacy</b>
-  3. <b>Transaction Throughput</b>
+[Image](3 Points)
+  1. <b>Cost</b> - network actors are able to decouple from the price of ether and avoid the gas fees associated with mainnet transactions
+  2. <b>Permissoned Privacy</b> - Only approved entitites are able host a node and gain access the state history of the blockchain.  This provides a choke-point layer of protection which guards the integrity of particpant data from the public, while still allowing regulatory insight, auditability, etc.
+  3. <b>Transaction Throughput</b> - a consortium architectural approach allows us to scale independently of mainnet, and avoid the associated TPS bottlenecks, etc.
 
 The code for the non-fungible script is hosted here (link.). 
  
- ## Real World Scenario Description
+## Real World Scenario Description
+To better understand the security holes, pain-points, and X associated with the current 
 
 I. Current State scenario description/visual
   - 
