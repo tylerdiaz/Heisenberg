@@ -21,8 +21,7 @@ The defined roles for this project scenario are as follows:
  ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
 ## Blockchain Network Architecture
-<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
-
+<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
 In full production, the nodes would concievably be owned by pre-authorized public hospitals, regulatory authorites, etc. 
 
 A diagram of the azure-hosted architecture is shown below:
@@ -39,7 +38,7 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 ![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/consortiumRationale.PNG)
 
 
-## Problems associated with the paradigm state
+## Problems associated with the current paradigm state
 To better understand the current perscription paradigm, we consulted with an actal Pharmacist (<i>name witheld</i>) to learn more about security holes, pain-points, and inefficiencies associated with the current system.
 
 <b>What we learned:</b>
@@ -50,7 +49,7 @@ To better understand the current perscription paradigm, we consulted with an act
   3. Transmission delays
   
 <b>How we created a better system:</b>
-  1.  The triple-entry accounting standard enabled through decentralized, append-only databases (like the ethereum blockchain) solves this problem
+  1.  Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the DB.  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and cryptographic access permissions. 
   2.
   3. 
 
