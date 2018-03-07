@@ -1,3 +1,5 @@
+
+
 # Project Heisenberg
 
 ![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
@@ -11,12 +13,15 @@ By creating a decentralized smart-contract standard that defines the method for 
   
 Project Heisenberg accomplishes this goal through the tokenization of pharmacuetical perscriptions into an ERC-721 solidity contract standar.  This non-fungible token carries metadata describing the doctor ID, the patient's public key, the drug RX Id, and the unit quantity to be dispensed.
 
-The code for the non-fungible token (ERC-721) is hosted here [link.](link.)
+
+## Users, Roles, and Actions
 
 The defined roles for this project scenario are as follows:
   1. <b>Doctor</b>
   2. <b>Patient</b>
   3. <b>Pharmacy</b>
+  
+  // write a description of each role here
   
  ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
@@ -61,3 +66,5 @@ To better understand the current perscription paradigm, we consulted with an act
 - Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
 
 ## Conclusion
+
+The code for the non-fungible token (ERC-721) is hosted here [link.](link.)
