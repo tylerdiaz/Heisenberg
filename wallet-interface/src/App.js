@@ -30,12 +30,10 @@ class ModalForm extends Component {
   componentDidMount() {
     const MyContract = window.web3.eth.contract([{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"approvedFor","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"tokensOf","outputs":[{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_doctorToApprove","type":"uint256"}],"name":"approveDoctor","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_pharmacyAddress","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"fillPrescription","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_tokenId","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_tokenId","type":"uint256"}],"name":"takeOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_patientAddress","type":"address"},{"name":"_doctorId","type":"uint256"},{"name":"_medicationName","type":"string"},{"name":"_brandName","type":"string"},{"name":"_dosage","type":"uint8"},{"name":"_dosageUnit","type":"string"},{"name":"_dateFilled","type":"uint256"},{"name":"_expirationTime","type":"uint256"}],"name":"prescribe","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[{"name":"doctorIdsToApprove","type":"uint256[]"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_approved","type":"address"},{"indexed":false,"name":"_tokenId","type":"uint256"}],"name":"Approval","type":"event"}])
 
-    this.state.ContractInstance = MyContract.at("0x8e75abd182f6e744718ac00c0a14001e5d3ec3a2")
+    this.state.ContractInstance = MyContract.at("0x4c52957e39eb58c5d57822767c4341a95df7903c")
   }
 
   sendPrescription() {
-    debugger;
-
     this.state.ContractInstance.prescribe(
       this.state.formState["patient-address"],
       1, // hard-coded doctor ID.
@@ -55,7 +53,10 @@ class ModalForm extends Component {
       (err, result) => {
         console.log("Err", err);
         console.log("Res", result);
-        if (result) { this.props.toggle(); }
+        if (result) {
+          this.setState({ transactionId: result });
+        }
+        // if (result) { this.props.toggle(); }
       }
     )
 
@@ -68,7 +69,15 @@ class ModalForm extends Component {
   }
 
   render () {
-    console.log(this.state.formState)
+    if (this.state.transactionId) {
+    return (
+      <Modal isOpen={this.props.visibility} toggle={this.props.toggle}>
+        <ModalHeader toggle={this.props.toggle}><img src="https://cdn1.iconfinder.com/data/icons/interface-elements/32/accept-circle-512.png" width="30" height="30"/> Your prescription has been sent!</ModalHeader>
+        <ModalBody>
+          <p>Your prescription has successfully been sent to the patient and is avaliable at the following transaction address: <code>{this.state.transactionId}</code></p>
+        </ModalBody>
+      </Modal>);
+    } else {
     return (
       <Modal isOpen={this.props.visibility} toggle={this.props.toggle}>
         <ModalHeader toggle={this.props.toggle}>Create a prescription</ModalHeader>
@@ -99,10 +108,6 @@ class ModalForm extends Component {
               </Input>
             </FormGroup>
             <FormGroup>
-              <Label for="exampleEmail">Number of pills</Label>
-              <Input type="number" name="pill-quantity" onChange={this.inputUpdate.bind(this)} value={this.state.formState["pill-quantity"] || ""} />
-            </FormGroup>
-            <FormGroup>
               <Label for="exampleEmail">Expirate Date</Label>
               <Input type="date" name="expiration-date" placeholder="" onChange={this.inputUpdate.bind(this)} value={this.state.formState["expiration-date"] || ""} />
             </FormGroup>
@@ -114,6 +119,7 @@ class ModalForm extends Component {
         </ModalFooter>
       </Modal>
     );
+    }
   }
 }
 
@@ -127,31 +133,59 @@ class App extends Component {
     this.state = {
       modal: false,
       transactionLogs: [
+        // some sample transaction logs to populate the demo
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
+          expiryTime: new Date("3/31/18"),
+          prescribedAt: new Date("3/7/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Atorvastatin Calcium",
+          brandName: "Lipitor",
           dosage: "120",
           dosageUnit: "mg",
         },
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
-          dosage: "120",
+          expiryTime: new Date("3/17/18"),
+          prescribedAt: new Date("3/2/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Omeprazole",
+          brandName: "Prilosec",
+          dosage: "20",
+          dosageUnit: "tablets",
+        },
+        {
+          expiryTime: new Date("3/31/18"),
+          prescribedAt: new Date("3/1/18"),
+          patientWalletAddress: "0x4b5d44c6c2d16cc42b00b4152645a8b51f2698d6",
+          medicationName: "Amlodipine",
+          brandName: "Norvasc",
+          dosage: "20",
           dosageUnit: "mg",
         },
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
-          dosage: "120",
+          expiryTime: new Date("3/15/18"),
+          prescribedAt: new Date("3/3/18"),
+          patientWalletAddress: "0x7b5d44c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Amlodipine",
+          brandName: "Norvasc",
+          dosage: "50",
+          dosageUnit: "mg",
+        },
+        {
+          expiryTime: new Date("3/12/18"),
+          prescribedAt: new Date("3/4/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Simvastatin",
+          brandName: "Zocor",
+          dosage: "400",
+          dosageUnit: "mg",
+        },
+        {
+          expiryTime: new Date("3/12/18"),
+          prescribedAt: new Date("3/6/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Acetaminophen",
+          brandName: "Lortab",
+          dosage: "150",
           dosageUnit: "mg",
         },
       ]
@@ -226,7 +260,7 @@ class App extends Component {
           </tbody>
         </Table>
 
-        <ModalForm visibility={this.state.modal} toggle={this.toggle}/>
+        <ModalForm visibility={this.state.modal} toggle={this.toggle} />
       </div>
     );
   }
