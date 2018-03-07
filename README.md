@@ -24,7 +24,6 @@ The defined roles for this project scenario are as follows:
  
 ## Blockchain Network Architecture
 <b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would  be maintained by pre-authorized public hospitals, regulatory authorites, etc. 
-
 A diagram of the azure-hosted architecture is shown below:
 
 ![ConsortiumArchitecture](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Ethereum%20Consortium%20Architecture.PNG)
@@ -60,17 +59,15 @@ To better understand the current perscription paradigm, we consulted with an act
   
   3. <i>On the blockchain, transaction verification is instant.</i>  In addition, pharmacists recieve the assurance of cryptographic transaction finality reached in under 4 blocks (or ~8 minutes)
  
+ 
 ## Quantifing the Value of Our Solution
 
+In June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of <b>$712 million</b> in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D. This a classic example of asymetric risk resulting from <b>moral hazard</b>.
 
-Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
+In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.  
 
-Anylsis have shown correlations to prove that as the opioid epidemic continues to rise, medicare fraudulant billings reach new heights.
-In 2013, the cost of medical care and substance abuse treatment for opioid addiction and overdose was estimated $78.5 billion according to the journal Medical Care. 
-The 21st Century Cures Act passed in 2016 allocated $1 billion over two years in opioid crisis grants to states. 
-June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of $712 million in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D.
+By eliminating moral hazard, or the risk that a party has not entered into the contract in good faith our smart-contract has the potential to eliminate the aforementioned costs associated with fraudulent billing, as well as eliminate explicit costs associated with legal proceedings, supply loss, etc.
 
-The transparency this virtual ledger provides on drug prescription tracking creates clear accountablility on all involved parties which in return will substancially decrease the discrepancies involved with prescription recording and billing.
 
 
 ## Conclusion
