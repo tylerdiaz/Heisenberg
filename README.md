@@ -63,7 +63,7 @@ To better understand the current prescription paradigm, we consulted with an act
  
 ## Quantifying the Value of Our Solution
 
-In June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of <b>$712 million</b> in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D. This a classic example of asymmetric risk resulting from <b>moral hazard</b>.
+In June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of <b>$712 million</b> in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D. This is a classic example of asymmetric risk resulting from <b>moral hazard</b>.
 
 In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.  
 
