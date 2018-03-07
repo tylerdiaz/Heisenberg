@@ -21,8 +21,9 @@ The defined roles for this project scenario are as follows:
     
  ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
+ 
 ## Blockchain Network Architecture
-<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would concievably be owned by pre-authorized public hospitals, regulatory authorites, etc. 
+<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would  be maintained by pre-authorized public hospitals, regulatory authorites, etc. 
 
 A diagram of the azure-hosted architecture is shown below:
 
@@ -50,11 +51,14 @@ To better understand the current perscription paradigm, we consulted with an act
   > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  
   This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
   
-  3. <i>Script verification is a process that can take upwards of 30 minutes to complete.</i>
+  3. <i>Script verification is a process that can take upwards of 30 minutes to complete.</i> Verifying the authenticity of the script is a manual process which the pharmacist has to do themselves. For example, the pharmacist must pass the log into a database, run an inventory update, wait for manager confirmation, and then fill the perscription.
+
   
 <b>How we created a better system:</b>
   1.  <i>Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the database.</i>  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and consortium-level access-control permissions. 
-  2.
+  
+  2. <i>By leveraging the innate properties of the blockchain, we are able to create an auditable system of script ownership with verifiable ledger history and participant transaction finality.</i>
+  
   3. 
  
 ## Quantifing the Value of Our Solution
