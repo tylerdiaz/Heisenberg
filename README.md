@@ -1,7 +1,6 @@
 # Project Heisenberg
-Solving prescription/pharmaceutical logistics using smart contracts
 
-[title](https://www.exampleUserFlow.jpg)
+![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
 
 Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
 
@@ -28,13 +27,16 @@ In production, the nodes would concievably be owned by pre-authorized public hos
 
 A diagram of the azure-hosted architecture is shown below:
 
-[Image](architecture link)
+![ConsortiumArchitecture](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Ethereum%20Consortium%20Architecture.PNG)
 
+## Consortium Rationale
 The rationale for choosing a Consortium Network architecture over the Public Mainnet are as follows:
-[Image](3 Points)
+
   1. <b>Cost</b> - network actors are able to decouple from the price of ether and avoid the gas fees associated with mainnet transactions
   2. <b>Permissoned Privacy</b> - Only approved entitites are able host a node and gain access the state history of the blockchain.  This provides a choke-point layer of protection which guards the integrity of particpant data from the public, while still allowing regulatory insight, auditability, etc.
   3. <b>Transaction Throughput</b> - a consortium architectural approach allows us to scale independently of mainnet, and avoid the associated TPS bottlenecks, etc.
+
+![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/consortiumRationale.PNG)
 
 The code for the non-fungible script is hosted here (link.). 
  
