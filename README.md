@@ -30,7 +30,6 @@ A diagram of the azure-hosted architecture is shown below:
 ![ConsortiumArchitecture](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Ethereum%20Consortium%20Architecture.PNG)
 
 
-
 ## Consortium Rationale
 The rationale for choosing a Consortium Network architecture over the Public Mainnet are as follows:
 
@@ -62,12 +61,17 @@ To better understand the current perscription paradigm, we consulted with an act
   3. <i>On the blockchain, transaction verification is instant.</i>  In addition, pharmacists recieve the assurance of cryptographic transaction finality reached in under 4 blocks (or ~8 minutes)
  
 ## Quantifing the Value of Our Solution
-- Quantifying implicit risk of moral hazard
 
-- Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
+According to X, the total cost of fraud associated with script forgary totals to Y.  This number takes into account A, B, and C.
+
+Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
+
 
 ## Conclusion
+Finally, after 24 hours of deep focus and dedication, we are happy to announce that Project Heisenberg is successfully up and running — and available for use for Doctors, Patients, and Pharmacists.
 
-In
+Three seperate portals (one for each predefined role) have been developed as a web app for doctors, patients, and pharmacists.  The interface leverages the ReactJS framework and pulls methods from the Web3.JS library to interact with the blockchain through the ABI.  
 
-The code for the non-fungible token (ERC-721) is hosted here [link.](link.)
+The code for the non-fungible ERC-721 token, PerscriptionNFT.sol is hosted here [link.](https://github.com/tylerdiaz/Heisenberg/blob/master/contract/token/PrescriptionNFT.sol)
+
+To access the application, visit:
