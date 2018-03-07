@@ -5,7 +5,7 @@ Solving prescription/pharmaceutical logistics using smart contracts
 
 Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
 
-By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a perscription we have solved a variety of problems.
+By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a perscription we have removed an array of problems associated with .
   1. The possibility of counterfit/forged perscriptions is eliminated
   2. An immutable record of the movement, quantity, identity, etc. of perscriptions is created
   3. The possibilty for regulatory insight into the quantity, concentration, movement, etc. of drugs is enabled
@@ -34,8 +34,15 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 
 The code for the non-fungible script is hosted here (link.). 
  
-## Real World Scenario Description
-To better understand the security holes, pain-points, and X associated with the current 
+## Problems associated with the paradigm state
+To better understand the current perscription paradigm, we consulted with an actal Pharmacist (name witheld) to learn more about security holes, pain-points, and inefficiencies associated with the current process.
+
+<b>What we learned are as follows:</b>
+  1. There is no authoritative source of truth when it comes to pharma perscriptions.  The differences in patient-pharamacuetical databases amongst public/private entities creates systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor).  The triple-entry accounting standard enabled through decentralized, append-only databases (like the ethereum blockchain) solves this problem
+  
+  2. In the current paradigm, their is an implicit cost associated with <b>moral hazard</b> (defined below) as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor).  This truth is embodied through an anecdote told by the Pharmacist.  "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  This illustrates the deficiency in <i>trust</i>, <i>verifiability</i>, and <i>finality</i> associated with the current system.
+  
+  3. 
 
 I. Current State scenario description/visual
   - 
@@ -44,3 +51,6 @@ II. Tokenized State scenario description/visual
 ## Business Value Proposition
  
 ## Quantified Business Value / Conclusion
+- Quantifying implicit risk of moral hazard
+
+- Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
