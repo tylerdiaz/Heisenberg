@@ -18,9 +18,7 @@ The defined roles for this project scenario are as follows:
   1. <b>Doctor</b> - Prescribes medication by executing a smart contract which tokenizes a valid prescription, based on metadata such as Doctor ID, Patient Name, Quantity, Dosage, and Expiry Date.
   2. <b>Patient</b> - Receives a token representing a valid prescription issued by a Doctor. Fills a prescription at an authorized Pharmacy by sending token to the Pharmacy's public wallet.
   3. <b>Pharmacy</b> - Disburses medication after receiving token from a Patient, and is payment-agnostic as to receiving token or fiat currency as payment for prescription. Verifies a valid prescription by checking the permission blockchain for a signature between the Patient and Doctor.
-  
-  // write a description of each role here
-  
+    
  ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
 ## Blockchain Network Architecture
