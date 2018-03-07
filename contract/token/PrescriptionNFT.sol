@@ -38,9 +38,6 @@ import "../math/SafeMath.sol";
 contract PrescrioptionNFT is ERC721 {
   using SafeMath for uint256;
 
-  //Total number of token that have been minted
-  uint256 private totalTokens;  
-
   struct PrescriptionMetadata {
     //Doctor ID that sent this prescription
     //This is the ID that is given to verified doctors by the CA
@@ -75,41 +72,36 @@ contract PrescrioptionNFT is ERC721 {
     bool isValid;
   }
 
+  //Total number of token that have been minted
+  uint256 private totalTokens;  
+
+  /*
+   *  Mappings 
+   */
   //Map of the certified doctors Map<tokenId, Prescription>  
   mapping (uint256 => Prescription) private prescriptions;
 
   //Map of the certified doctors Map<doctorUUID, Doctor>
   mapping (uint256 => Doctor) private approvedDoctors;
 
-  //For date time chainStartTime = now;
-  //Map for tokenId to prescription metadata
-  // mapping (uint256 => PrescriptionMetadata) private userToPrescription;
-  // // Map<tokenId, PrescriptionMetadata>()
-  // // metadata[_tokenID].type 
-  
-  // // Mapping from token ID to owner
-  // mapping (uint256 => address) private tokenOwner;
-
   // Mapping from token ID to approved address
   //You can only send this to certain addresses
   mapping (uint256 => address) private tokenApprovals;
 
-
   // Mapping from owner to list of owned token IDs
-  mapping (address => uint256[]) private ownedTokens;
   //May make this a map of maps: Map<address, Map<>>
-  // mapping (address => mapping(uint256 => uint256)) private ownedTokens;
+  mapping (address => uint256[]) private ownedTokens;
 
   // Mapping from token ID to index of the owner tokens list
   //For prescription x, what is the index in ownedToken
   mapping(uint256 => uint256) private ownedTokensIndex;
-
-  //constructor 
+ 
   /**
-   * @dev Create a new PrescrioptionNFT with certain doctors pre approved
+   * @dev NFT Constructor
+   *    Create a new PrescrioptionNFT with certain doctors pre approved
    *      doctorIdsToApprove can be empty
    */
-  function PrescrioptionNFT(uint8[] doctorIdsToApprove) public {
+  function PrescrioptionNFT(uint256[] doctorIdsToApprove) public {
         // For each of the provided certified doctors,
         // set that doctors credentials to valid
         for (uint i = 0; i < doctorIdsToApprove.length; i++) {
@@ -122,6 +114,72 @@ contract PrescrioptionNFT is ERC721 {
         }
     }
 
+
+/*
+ * CA methods
+ */
+
+  /**
+  * @dev Approve a given doctor UUID
+  * @param _doctorToApprove uintuint256 ID of doctor to approve for giving prescriptions
+  */
+  function approveDoctor(uint256 _doctorToApprove) public {
+      // For each of the provided certified doctors,
+      // set that doctors credentials to valid
+      approvedDoctors[_doctorToApprove].doctorId = _doctorToApprove;
+      approvedDoctors[_doctorToApprove].isValid = true;
+    }
+
+ /*
+ * Doctor methods
+ */
+
+  /**
+  * @dev Fill the Prescription with the given tokenId. This means that the user will 
+  *   transfer their Prescription tokens to the pharmacy address
+  * @param _doctorToApprove uintuint256 ID of doctor to approve for giving prescriptions
+  */
+  function prescribe(
+    address _patientAddress, 
+    uint256 _doctorId,
+    string _medicationName,
+    string _brandName,
+    uint8 _dosage,
+    string _dosageUnit,
+    uint256 _dateFilled,
+    uint256 _expirationTime) public payable doctorIsApproved(_doctorId) {
+      //the next token id will just be i + 1
+      uint256 newTokenId = totalTokens + 1;
+
+      //Create a new Prescription token to the chain
+      //Add a new Prescription token to the chain
+      prescriptions[newTokenId].metadata = PrescriptionMetadata(
+        _doctorId,
+        _patientAddress,
+        _medicationName,
+        _brandName,
+        _dosage,
+        _dosageUnit,
+        _dateFilled,
+        _expirationTime
+      );
+
+      //totalTokens will get incremented in transfer()
+      //The token will also get created 
+      transfer(_patientAddress, newTokenId);
+  }
+ /*
+ * Patient methods
+ */
+
+  /**
+  * @dev Fill the Prescription with the given tokenId. This means that the user will 
+  *   transfer their Prescription tokens to the pharmacy address
+  * @param _doctorToApprove uintuint256 ID of doctor to approve for giving prescriptions
+  */
+  function fillPrescription(address _pharmacyAddress, uint256 _tokenId) public doctorIsApproved(_tokenId) {
+      transfer(_pharmacyAddress, _tokenId);
+  }
 
   /**
   * @dev Guarantees msg.sender is patient who was actually prescribed this token
