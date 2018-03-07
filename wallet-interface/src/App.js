@@ -9,15 +9,14 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Web3 from 'web3';
 import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import {
-  Media, Table, Button, Navbar,
-  NavbarBrand, Modal, ModalHeader,
+  Media, Table, Button,
+  Modal, ModalHeader,
   ModalBody, ModalFooter, Form, FormGroup,
-  Label, Input, FormText
+  Label, Input
 } from 'reactstrap';
 
 class ModalForm extends Component {
@@ -35,11 +34,11 @@ class ModalForm extends Component {
   }
 
   sendPrescription() {
-    // debugger;
+    debugger;
 
-    let prescription = this.state.ContractInstance.prescribe(
+    this.state.ContractInstance.prescribe(
       this.state.formState["patient-address"],
-      1, // hard-coded arbitrary doctor ID. sry :(
+      1, // hard-coded doctor ID.
       this.state.formState["medication-name"],
       this.state.formState["brand-name"],
       this.state.formState["dosage-quantity"],
