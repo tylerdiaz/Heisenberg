@@ -54,7 +54,7 @@ To better understand the current perscription paradigm, we consulted with an act
   3. <i>Script verification is a process that can take upwards of 30 minutes to complete.</i> Verifying the authenticity of the script is a manual process which the pharmacist has to do themselves. For example, the pharmacist must pass the log into a database, run an inventory update, wait for manager confirmation, and then fill the perscription.
 
   
-<b>How we created a better system:</b>
+### <b>How we created a better system:</b>
   1.  <i>Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the database.</i>  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and consortium-level access-control permissions. 
   
   2. <i>By leveraging the innate properties of the blockchain, we are able to create an auditable system of script ownership with verifiable ledger history.</i> This allows for increased regulatory insight while also eliminating the base need for trust between doctors, patients, and pharmacists
@@ -67,5 +67,7 @@ To better understand the current perscription paradigm, we consulted with an act
 - Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
 
 ## Conclusion
+
+In
 
 The code for the non-fungible token (ERC-721) is hosted here [link.](link.)
