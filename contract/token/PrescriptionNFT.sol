@@ -67,7 +67,19 @@ contract PrescrioptionNFT is ERC721 {
     address owner;
   }
 
+  //unfortuantely there's no real great Set<> in solidity (that I've found)
+  //So we'll just create a struct to replicate this
+  struct Doctor {
+    //This is the uuid assigned to the verified doctor by the CA
+    uint256 doctorId;
+    bool isValid;
+  }
+
+  //Map of the certified doctors Map<tokenId, Prescription>  
   mapping (uint256 => Prescription) private prescriptions;
+
+  //Map of the certified doctors Map<doctorUUID, Doctor>
+  mapping (uint256 => Doctor) private approvedDoctors;
 
   //For date time chainStartTime = now;
   //Map for tokenId to prescription metadata
@@ -82,9 +94,6 @@ contract PrescrioptionNFT is ERC721 {
   //You can only send this to certain addresses
   mapping (uint256 => address) private tokenApprovals;
 
-  //Map of the certified doctors
-  // SET<CertifiedDoctor UUID>
-  mapping (uint256 => address) private approvedDoctors;
 
   // Mapping from owner to list of owned token IDs
   mapping (address => uint256[]) private ownedTokens;
@@ -96,24 +105,32 @@ contract PrescrioptionNFT is ERC721 {
   mapping(uint256 => uint256) private ownedTokensIndex;
 
   //constructor 
-  /// Create a new ballot to choose one of `proposalNames`.
-  function PrescrioptionNFT(uint8[] certifiedDoctors) public {
-        // For each of the provided proposal names,
-        // create a new proposal object and add it
-        // to the end of the array.
-
-        //TODO:
-        // for (uint i = 0; i < certifiedDoctors.length; i++) {
-        //     // `Proposal({...})` creates a temporary
-        //     // Proposal object and `proposals.push(...)`
-        //     // appends it to the end of `proposals`.
-        //     proposals.push(Proposal({
-        //         name: proposalNames[i],
-        //         voteCount: 0
-        //     }));
-        // }
+  /**
+   * @dev Create a new PrescrioptionNFT with certain doctors pre approved
+   *      doctorIdsToApprove can be empty
+   */
+  function PrescrioptionNFT(uint8[] doctorIdsToApprove) public {
+        // For each of the provided certified doctors,
+        // set that doctors credentials to valid
+        for (uint i = 0; i < doctorIdsToApprove.length; i++) {
+            // `Proposal({...})` creates a temporary
+            // Proposal object and `proposals.push(...)`
+            // appends it to the end of `proposals`.
+            uint256 doctorToApprove = doctorIdsToApprove[i];
+            approvedDoctors[doctorToApprove].doctorId = doctorToApprove;
+            approvedDoctors[doctorToApprove].isValid = true;
+        }
     }
 
+
+  /**
+  * @dev Guarantees msg.sender is patient who was actually prescribed this token
+  * @param _tokenId uint256 ID of the token to validate its ownership belongs to msg.sender
+  */
+  modifier doctorIsApproved(uint256 _doctorId) {
+    require(approvedDoctors[_doctorId].isValid);
+    _;
+  }
 
   /**
   * @dev Guarantees msg.sender is patient who was actually prescribed this token
