@@ -48,20 +48,16 @@ To better understand the current perscription paradigm, we consulted with an act
   > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  
   This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
   
-  3. Pharmacists face a 
+  3. <i>Pharmacists face a transmission delay</i>
   
 <b>How we created a better system:</b>
-  1.  Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the DB.  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and cryptographic access permissions. 
+  1.  <i>Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the database.</i>  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and consortium-level access-control permissions. 
   2.
   3. 
-
-I. Current State scenario description/visual
-  - 
-II. Tokenized State scenario description/visual
  
-## Business Value Proposition
- 
-## Quantified Business Value / Conclusion
+## Quantifing the Value of Our Solution
 - Quantifying implicit risk of moral hazard
 
 - Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
+
+## Conclusion
