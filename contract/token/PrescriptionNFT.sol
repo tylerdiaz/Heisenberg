@@ -321,4 +321,15 @@ contract PrescrioptionNFT is ERC721 {
     totalTokens = totalTokens.sub(1);
   }
 
+  //  
+  //  @dev no_op these function since approval doesn't meet our use case
+  //  
+ function approve(address _to, uint256 _tokenId) public{
+     //no_op
+ }
+ 
+ function takeOwnership(uint256 _tokenId) public{
+     //no_op
+ }
+
 }
