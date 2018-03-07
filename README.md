@@ -99,5 +99,5 @@ Three separate portals (one for each predefined role) have been developed as a w
 To access the application, download the [Metamask extension](https://github.com/MetaMask), create an account, and visit the following addresses: 
   * <b>Doctor Portal</b> [Link.](http://34.201.43.128:3000/)
   * <b>Patient Portal</b> [Link.](http://34.201.43.128:3001/)
-  
+  * <b>Pharmacist Portal</b> [Link.](http://34.201.43.128:3001/)
 
