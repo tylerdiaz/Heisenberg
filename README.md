@@ -99,5 +99,4 @@ Three separate portals (one for each predefined role) have been developed as a w
 To access the application, visit: 
 
 
-## Thanks
-![pic](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
+## Thanks!
