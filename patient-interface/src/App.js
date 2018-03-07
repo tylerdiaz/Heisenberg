@@ -100,31 +100,34 @@ class App extends Component {
       modal: false,
       transactionLogs: [
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
+          expiryTime: new Date("3/31/18"),
+          prescribedAt: new Date("3/7/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Atorvastatin Calcium",
+          brandName: "Lipitor",
           dosage: "120",
           dosageUnit: "mg",
+          filled: false
         },
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
+          expiryTime: new Date("2/31/18"),
+          prescribedAt: new Date("2/7/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Atorvastatin Calcium",
+          brandName: "Lipitor",
           dosage: "120",
           dosageUnit: "mg",
+          filled: true
         },
         {
-          expiryTime: Date.now(),
-          prescribedAt: Date.now(),
-          patientWalletAddress: "0x000000000000000000000000000003",
-          medicationName: "Adderal",
-          brandName: "Think Fast",
+          expiryTime: new Date("1/31/18"),
+          prescribedAt: new Date("1/7/18"),
+          patientWalletAddress: "0x1a0e14c6c2d16dd42b00b4152645a8b51f2698d6",
+          medicationName: "Atorvastatin Calcium",
+          brandName: "Lipitor",
           dosage: "120",
           dosageUnit: "mg",
+          filled: true
         },
       ]
     }
@@ -143,7 +146,10 @@ class App extends Component {
         <td>{new Date(tx.prescribedAt).toLocaleDateString("en-US")}</td>
         <td>{tx.dosage}{tx.dosageUnit} of {tx.brandName} ({tx.medicationName})</td>
         <td>
+        {tx.filled ? 
+          <Button color="default" size="sm" disabled>Prescription filled</Button>:
           <Button color="success" size="sm" onClick={this.toggle}>Fill prescription</Button>
+        }
         </td>
       </tr>
     )
