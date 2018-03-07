@@ -18,7 +18,7 @@ The defined roles for this project scenario are as follows:
   2. <b>Patient</b>
   3. <b>Pharmacy</b>
   
- ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Screen%20Shot%202018-03-06%20at%2011.29.18%20PM.png)
+ ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
 ## Blockchain Network Architecture
 <b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
