@@ -4,27 +4,125 @@ import "./ERC721.sol";
 import "../math/SafeMath.sol";
 
 /**
- * @title ERC721Token
+ * Notes: 
+ Were not touching _mint() --> assuming that the doctor already has X from the CA
+
+   //prunnpm install -g solcing old/dead data
+    // if the Etherum block cahin can have all of the data, our consortium will have the rest
+  //tokens per patient per perscription?
+
+  //How to limit write and reads from the chain
+    //mutable tokens?
+
+  //Pharmacy 
+  //Doctor registraton base
+
+  //Concerns around persoanlly identifiable information 
+  //sign the presciption creation with both the patient and the doctor?
+  //Dont have to encrpty the payload since its on a consortium
+
+  //Opt in system
+
+  //Dont need totalTokens since they are infinite
+  //Could keep it for auditing?
+  //Or rather just tokensPerDoctor
+    uint256 private totalTokens;
+
+  //Call up pharmacy and ask for pain points 
+    //Why?
+ * @title PrescrioptionNFT
  * Generic implementation for the required functionality of the ERC721 standard
+ *
+ * address(0) is a newly created contract's address, which literally translates to 0x0
  */
-contract ERC721Token is ERC721 {
+contract PrescrioptionNFT is ERC721 {
   using SafeMath for uint256;
 
-  // Total amount of tokens
-  uint256 private totalTokens;
+  //Total number of token that have been minted
+  uint256 private totalTokens;  
 
-  // Mapping from token ID to owner
-  mapping (uint256 => address) private tokenOwner;
+  struct PrescriptionMetadata {
+    //Doctor ID that sent this prescription
+    //This is the ID that is given to verified doctors by the CA
+    uint256 doctorId;
+    //Doctor ID that sent this prescription
+    //This is the ID that is given to verified doctors by the CA
+    address prescribedPatient;
+    //Scientific name of the medicine
+    string medicationName;
+    //Brand name of the medicine
+    string brandName;
+    //Amount to five the patient
+    uint8 dosage;
+    //Unit for the dosage (mg, ml, etc)
+    string dosageUnit;
+    //Epoch time when the preciption was given (mint time)
+    uint256 dateFilled;
+    //Epoch expiration date (When is this prescription no longer valid)
+    uint256 expirationTime;
+  }
+
+  struct Prescription {
+    PrescriptionMetadata metadata;
+    address owner;
+  }
+
+  mapping (uint256 => Prescription) private prescriptions;
+
+  //For date time chainStartTime = now;
+  //Map for tokenId to prescription metadata
+  // mapping (uint256 => PrescriptionMetadata) private userToPrescription;
+  // // Map<tokenId, PrescriptionMetadata>()
+  // // metadata[_tokenID].type 
+  
+  // // Mapping from token ID to owner
+  // mapping (uint256 => address) private tokenOwner;
 
   // Mapping from token ID to approved address
+  //You can only send this to certain addresses
   mapping (uint256 => address) private tokenApprovals;
+
+  //Map of the certified doctors
+  // SET<CertifiedDoctor UUID>
+  mapping (uint256 => address) private approvedDoctors;
 
   // Mapping from owner to list of owned token IDs
   mapping (address => uint256[]) private ownedTokens;
+  //May make this a map of maps: Map<address, Map<>>
+  // mapping (address => mapping(uint256 => uint256)) private ownedTokens;
 
   // Mapping from token ID to index of the owner tokens list
+  //For prescription x, what is the index in ownedToken
   mapping(uint256 => uint256) private ownedTokensIndex;
 
+  //constructor 
+  /// Create a new ballot to choose one of `proposalNames`.
+  function PrescrioptionNFT(uint8[] certifiedDoctors) public {
+        // For each of the provided proposal names,
+        // create a new proposal object and add it
+        // to the end of the array.
+
+        //TODO:
+        // for (uint i = 0; i < certifiedDoctors.length; i++) {
+        //     // `Proposal({...})` creates a temporary
+        //     // Proposal object and `proposals.push(...)`
+        //     // appends it to the end of `proposals`.
+        //     proposals.push(Proposal({
+        //         name: proposalNames[i],
+        //         voteCount: 0
+        //     }));
+        // }
+    }
+
+
+  /**
+  * @dev Guarantees msg.sender is patient who was actually prescribed this token
+  * @param _tokenId uint256 ID of the token to validate its ownership belongs to msg.sender
+  */
+  modifier onlyPrescribedUser(uint256 _tokenId) {
+    require(prescriptions[_tokenId].metadata.prescribedPatient == msg.sender);
+    _;
+  }
 
   /**
   * @dev Guarantees msg.sender is owner of the given token
@@ -68,7 +166,7 @@ contract ERC721Token is ERC721 {
   * @return owner address currently marked as the owner of the given token ID
   */
   function ownerOf(uint256 _tokenId) public view returns (address) {
-    address owner = tokenOwner[_tokenId];
+    address owner = prescriptions[_tokenId].owner;
     require(owner != address(0));
     return owner;
   }
@@ -87,7 +185,7 @@ contract ERC721Token is ERC721 {
   * @param _to address to receive the ownership of the given token ID
   * @param _tokenId uint256 ID of the token to be transferred
   */
-  function transfer(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId) {
+  function transfer(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId) onlyPrescribedUser(_tokenId) {
     clearApprovalAndTransfer(msg.sender, _to, _tokenId);
   }
 
@@ -96,7 +194,7 @@ contract ERC721Token is ERC721 {
   * @param _to address to be approved for the given token ID
   * @param _tokenId uint256 ID of the token to be approved
   */
-  function approve(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId) {
+  function approve(address _to, uint256 _tokenId) public onlyOwnerOf(_tokenId) onlyPrescribedUser(_tokenId) {
     address owner = ownerOf(_tokenId);
     require(_to != owner);
     if (approvedFor(_tokenId) != 0 || _to != 0) {
@@ -184,8 +282,8 @@ contract ERC721Token is ERC721 {
   * @param _tokenId uint256 ID of the token to be added to the tokens list of the given address
   */
   function addToken(address _to, uint256 _tokenId) private {
-    require(tokenOwner[_tokenId] == address(0));
-    tokenOwner[_tokenId] = _to;
+    require(prescriptions[_tokenId].owner == address(0));
+    prescriptions[_tokenId].owner = _to;
     uint256 length = balanceOf(_to);
     ownedTokens[_to].push(_tokenId);
     ownedTokensIndex[_tokenId] = length;
@@ -204,7 +302,7 @@ contract ERC721Token is ERC721 {
     uint256 lastTokenIndex = balanceOf(_from).sub(1);
     uint256 lastToken = ownedTokens[_from][lastTokenIndex];
 
-    tokenOwner[_tokenId] = 0;
+    prescriptions[_tokenId].owner = 0;
     ownedTokens[_from][tokenIndex] = lastToken;
     ownedTokens[_from][lastTokenIndex] = 0;
 
