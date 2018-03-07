@@ -5,7 +5,7 @@ Solving prescription/pharmaceutical logistics using smart contracts
 
 Project Heisenberg is a decentralized identity management system built atop a permissioned Ethereum consortium network.  The goal of this project is to completely eliminate the risk associated with pharmacuetical script fraud.
 
-By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a perscription we have removed an array of problems associated with .
+By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a pharmacuetical script we have removed an array of inefficiencies:
   1. The possibility of counterfit/forged perscriptions is eliminated
   2. An immutable record of the movement, quantity, identity, etc. of perscriptions is created
   3. The possibilty for regulatory insight into the quantity, concentration, movement, etc. of drugs is enabled
@@ -21,8 +21,12 @@ The defined roles for this project scenario are as follows:
   
  [role descriptions here]
  
-## System Architecture
-Project Heisenberg is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  In production, these nodes could be owned by pre-authorized public hospitals, regulatory authorites, etc.  The network id for peering is 347329323.  A diagram of the azure-hosted architecture is below.
+## Blockchain Network Architecture
+Project Heisenberg is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
+
+In production, the nodes would concievably be owned by pre-authorized public hospitals, regulatory authorites, etc. 
+
+A diagram of the azure-hosted architecture is shown below:
 
 [Image](architecture link)
 
