@@ -40,13 +40,18 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 
 
 ## Problems associated with the paradigm state
-To better understand the current perscription paradigm, we consulted with an actal Pharmacist (name witheld) to learn more about security holes, pain-points, and inefficiencies associated with the current process.
+To better understand the current perscription paradigm, we consulted with an actal Pharmacist (<i>name witheld</i>) to learn more about security holes, pain-points, and inefficiencies associated with the current system.
 
 <b>What we learned:</b>
-  1. There is no authoritative source of truth when it comes to pharma perscriptions.  The differences in patient-pharamacuetical databases amongst public/private entities creates systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor).  The triple-entry accounting standard enabled through decentralized, append-only databases (like the ethereum blockchain) solves this problem
+  1. <i>There is no authoritative source of truth when it comes to the data layer for pharma perscriptions.</i>  The differences in databases amongst public/private entities creates a systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor). 
   
   2. In the current paradigm, their is an implicit cost associated with <b>moral hazard</b> (defined below) as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor).  This truth is embodied through an anecdote told by the Pharmacist.  "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  This illustrates the deficiency in <i>trust</i>, <i>verifiability</i>, and <i>finality</i> associated with the current system.
   
+  3. Transmission delays
+  
+<b>How we created a better system:</b>
+  1.  The triple-entry accounting standard enabled through decentralized, append-only databases (like the ethereum blockchain) solves this problem
+  2.
   3. 
 
 I. Current State scenario description/visual
