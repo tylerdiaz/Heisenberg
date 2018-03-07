@@ -43,6 +43,7 @@ class ModalForm extends Component {
       this.state.formState["brand-name"],
       this.state.formState["dosage-quantity"],
       this.state.formState["dosage-unit"],
+      this.state.formState["pill-quantity"],
       Date.now(),
       Date.now(this.state.formState["expiration-date"]),
       {
@@ -96,6 +97,10 @@ class ModalForm extends Component {
                 <option value="mg">mg</option>
                 <option value="tablets">tablets</option>
               </Input>
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">Number of pills</Label>
+              <Input type="number" name="pill-quantity" onChange={this.inputUpdate.bind(this)} value={this.state.formState["pill-quantity"] || ""} />
             </FormGroup>
             <FormGroup>
               <Label for="exampleEmail">Expirate Date</Label>
