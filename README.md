@@ -1,6 +1,6 @@
 # Project Heisenberg
 
-![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
+![logo](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/ProjectHeisenberg.PNG)
 
 <b>Project Heisenberg</b> is a decentralized identity management system built atop a permissioned Ethereum consortium network.  This project implements a non-fungible token standard to completely eliminate the <i>risk</i> and <i>implict costs</i> associated with pharmacuetical script fraud.
 
