@@ -2,7 +2,7 @@
 
 ![logo](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/ProjectHeisenberg.PNG)
 
-<b>Project Heisenberg</b> is a decentralized pharmacuetical script management system built atop a permissioned Ethereum consortium network.  This project implements a non-fungible token standard to completely eliminate the <i>risk</i> and <i>implict costs</i> associated with pharmacuetical script fraud.
+<b>Project Heisenberg</b> is a decentralized identity management system built atop a permissioned Ethereum consortium network.  This project implements a non-fungible token standard to completely eliminate the <i>risk</i> and <i>implict costs</i> associated with pharmacuetical script fraud.
 
 By creating a decentralized smart-contract standard that defines the method for ownership and transferribility of a pharmacuetical script we:
   1. <b>Remove</b> the possibility of counterfit/forged perscriptions is eliminated
@@ -47,9 +47,8 @@ To better understand the current perscription paradigm, we consulted with an act
   1. <i>There is no authoritative source of truth when it comes to the data layer for pharma perscriptions.</i>  The differences in databases amongst public/private entities creates a systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor). 
   
   2. <i>There exists a quantifiable, implicit cost associated with asymetric moral hazard</i> - because the legal risk of forgery is offloaded to the patient and/or doctor.  This truth is embodied through an anecdote told by 'the Pharmacist',  
-  > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."
-  
- This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
+  > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  
+  This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
   
   3. <i>Script verification is a process that can take upwards of 30 minutes to complete.</i> Verifying the authenticity of the script is a manual process which the pharmacist has to do themselves. For example, the pharmacist must pass the log into a database, run an inventory update, wait for manager confirmation, and then fill the perscription.
 
@@ -63,9 +62,15 @@ To better understand the current perscription paradigm, we consulted with an act
  
 ## Quantifing the Value of Our Solution
 
-According to X, the total cost of fraud associated with script forgary totals to Y.  This number takes into account A, B, and C.
 
 Moral hazard is the risk that a party to a transaction has not entered into the contract in good faith, has provided misleading information about its assets, liabilities or credit capacity, or has an incentive to take unusual risks in a desperate attempt to earn a profit before the contract settles.  In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.
+
+Anylsis have shown correlations to prove that as the opioid epidemic continues to rise, medicare fraudulant billings reach new heights.
+In 2013, the cost of medical care and substance abuse treatment for opioid addiction and overdose was estimated $78.5 billion according to the journal Medical Care. 
+The 21st Century Cures Act passed in 2016 allocated $1 billion over two years in opioid crisis grants to states. 
+June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of $712 million in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D.
+
+The transparency this virtual ledger provides on drug prescription tracking creates clear accountablility on all involved parties which in return will substancially decrease the discrepancies involved with prescription recording and billing.
 
 
 ## Conclusion
