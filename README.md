@@ -14,12 +14,11 @@ Project Heisenberg accomplishes this goal through the tokenization of pharmacuet
 The code for the non-fungible token (ERC-721) is hosted here [link.](link.). 
 
 The defined roles for this project scenario are as follows:
-[Image](3 Points)
-  1. Doctor
-  2. Patient
-  3. Pharmacy
+  1. <b>Doctor</b>
+  2. <b>Patient</b>
+  3. <b>Pharmacy</b>
   
- [role descriptions here]
+ [Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Screen%20Shot%202018-03-06%20at%2011.29.18%20PM.png)
  
 ## Blockchain Network Architecture
 <b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
