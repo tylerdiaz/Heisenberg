@@ -21,9 +21,13 @@ The defined roles for this project scenario are as follows:
     
  ![Flow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Token%20issuance%20and%20prescription%20flow%20chart.png)
  
+Regulatory bodies with read-only access to the ledger may be considerded to be a "fourth role".  To ensure this, these agents would not host mining nodes or contract-addresses.
  
 ## Blockchain Network Architecture
-<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortium members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would be maintained by pre-authorized public hospitals, regulatory authorities, etc. 
+<b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortium members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). 
+
+In full production, the nodes would be maintained by entities pre-authorized by an accredited regulatory body - ie.e public hospitals, government agencies, etc. The physical location of these nodes would be irrelevant (i.e. they could be hosted in a cloud environment or on-premise)
+
 A diagram of the azure-hosted architecture is shown below:
 
 
@@ -42,12 +46,13 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 ## Problems associated with the current paradigm state
 To better understand the current prescription paradigm, we consulted with an actual Pharmacist (<i>name withheld</i>) to learn more about security holes, pain-points, and inefficiencies associated with the current system.
 
-<b>What we learned:</b>
+### <b>What we learned:</b>
   1. <i>There is no authoritative source of truth when it comes to the data layer for pharma prescriptions.</i>  The differences in databases amongst public/private entities creates a systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor). 
-  
+
 
 2. <i>There exists a quantifiable, implicit cost associated with asymmetric moral hazard</i> - because the legal risk of forgery is offloaded to the patient and/or doctor.  This truth is embodied through an anecdote told by 'the Pharmacist',  
   > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the prescribing doctor and verify the prescription."  
+  
   This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
   
   3. <i>Script verification is a process that can take upwards of 30 minutes to complete.</i> Verifying the authenticity of the script is a manual process which the pharmacist has to do themselves. For example, the pharmacist must pass the log into a database, run an inventory update, wait for manager confirmation, and then fill the prescription.
@@ -63,7 +68,7 @@ To better understand the current prescription paradigm, we consulted with an act
  
 ## Quantifying the Value of Our Solution
 
-In June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of <b>$712 million</b> in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D. This is a classic example of asymmetric risk resulting from <b>moral hazard</b>.
+In June 2015 Medicare Strike Force led charges against 243 doctors, nurses, licensed medical professionals, health care company owners and others for allegedly submitting a total of <b>$712 million</b> in fraudulent billings, which was the result of a nationwide sweep — the largest health care fraud takedown in history. More than 40 of the defendants were charged with fraud related to the prescription drug benefit program Medicare Part D. This a classic example of asymmetric risk resulting from <b>moral hazard</b>.
 
 In economics, moral hazard occurs when one person takes more risks because someone else bears the cost of those risks.  
 
@@ -80,7 +85,8 @@ The PrescriptionNFT.sol file is a solidity smart-contract which formalizes the t
   5. Dosage - a number representing the pill payload to be dispensed by the pharmacist
   6. Dosage Unit - this will be the formalized measurement unit (i.e mililiters)
   7. Date Filled - the date in which the order was filled by the pharmacist
-  8. Expiration Date - the date in which the prescription expires.  We check against the expiration date when the patient tries to fill the prescription
+  8. Total Amount - the total amount of pills to be dispensed by the pharmacist to the patient
+  9. Expiration Date - the date in which the prescription expires.  We check against the expiration date when the patient tries to fill the prescription
 
 The code for the non-fungible ERC-721 token, PerscriptionNFT.sol is hosted here [link.](https://github.com/tylerdiaz/Heisenberg/blob/master/contract/token/PrescriptionNFT.sol)
 
@@ -90,4 +96,8 @@ Finally, after 24 hours of deep focus and dedication, we are happy to announce t
 
 Three separate portals (one for each predefined role) have been developed as a web app for doctors, patients, and pharmacists.  The interface leverages the ReactJS framework and pulls methods from the Web3.JS library to interact with the blockchain through the ABI.  
 
-To access the application, visit:
+To access the application, visit: 
+
+
+## Thanks
+![pic](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/App%20Logo.jpg)
