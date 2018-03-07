@@ -2,7 +2,7 @@
 
 ![logo](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/ProjectHeisenberg.PNG)
 
-<b>Project Heisenberg</b> is a decentralized identity management system built atop a permissioned Ethereum consortium network.  This project implements a non-fungible token standard to completely eliminate the <i>risk</i> and <i>implicit costs</i> associated with pharmaceutical script fraud.
+<b>Project Heisenberg</b> is a decentralized identity management and pharmaceutical ERP system built atop a permissioned Ethereum consortium network.  This project implements a non-fungible token standard to completely eliminate the <i>risk</i> and <i>implicit costs</i> associated with pharmaceutical script fraud.
 
 By creating a decentralized smart-contract standard that defines the method for ownership and transferability of a pharmaceutical script we:
   1. <b>Remove</b> the possibility of counterfeit/forged prescriptions is eliminated
@@ -92,7 +92,7 @@ The code for the non-fungible ERC-721 token, PerscriptionNFT.sol is hosted here 
 
 
 ## Conclusion
-Finally, after 24 hours of deep focus and dedication, we are happy to announce that Project Heisenberg is successfully up and running — and available for use for Doctors, Patients, and Pharmacists.
+We are excited to announce that after 24 hours of deep focus and dedication, we are happy to announce that Project Heisenberg is successfully up and running — and available for use for Doctors, Patients, and Pharmacists.
 
 Three separate portals (one for each predefined role) have been developed as a web app for doctors, patients, and pharmacists.  The interface leverages the ReactJS framework and pulls methods from the Web3.JS library to interact with the blockchain through the ABI.  
 
