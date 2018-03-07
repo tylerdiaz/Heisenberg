@@ -43,7 +43,7 @@ The rationale for choosing a Consortium Network architecture over the Public Mai
 ![exampleflow](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/consortiumRationale.PNG)
 
 
-## Problems associated with the current paradigm state
+## Problems associated with the script fulfillment process
 To better understand the current prescription paradigm, we consulted with an actual Pharmacist (<i>name withheld</i>) to learn more about security holes, pain-points, and inefficiencies associated with the current system.
 
 ### <b>What we learned:</b>
