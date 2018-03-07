@@ -24,7 +24,7 @@ The defined roles for this project scenario are as follows:
  
 ## Blockchain Network Architecture
 <b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would  be maintained by pre-authorized public hospitals, regulatory authorites, etc. 
-<i>
+
 A diagram of the azure-hosted architecture is shown below:
 
 ![ConsortiumArchitecture](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Ethereum%20Consortium%20Architecture.PNG)
