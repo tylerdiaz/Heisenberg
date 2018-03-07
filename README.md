@@ -44,7 +44,9 @@ To better understand the current perscription paradigm, we consulted with an act
 <b>What we learned:</b>
   1. <i>There is no authoritative source of truth when it comes to the data layer for pharma perscriptions.</i>  The differences in databases amongst public/private entities creates a systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor). 
   
-  2. In the current paradigm, their is an implicit cost associated with <b>moral hazard</b> (defined below) as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor).  This truth is embodied through an anecdote told by the Pharmacist.  "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  This illustrates the deficiency in <i>trust</i>, <i>verifiability</i>, and <i>finality</i> associated with the current system.
+  2. <i>There is a quantifiable, implicit cost associated with asymetric moral hazard</i> - as legal risk of forgery is offloaded to the patient and/or doctor.  This truth is embodied through an anecdote told by the Pharmacist,  
+  > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  
+  This illustrates the deficiency in <i>trust</i>, <i>verifiability</i>, and <i>finality</i> associated with the current system.
   
   3. Transmission delays
   
