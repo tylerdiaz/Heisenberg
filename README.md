@@ -44,11 +44,11 @@ To better understand the current perscription paradigm, we consulted with an act
 <b>What we learned:</b>
   1. <i>There is no authoritative source of truth when it comes to the data layer for pharma perscriptions.</i>  The differences in databases amongst public/private entities creates a systemic risk as it offloads the implicit cost associated with risk to other actors (i.e. the patient and/or doctor). 
   
-  2. <i>There is a quantifiable, implicit cost associated with asymetric moral hazard</i> - as legal risk of forgery is offloaded to the patient and/or doctor.  This truth is embodied through an anecdote told by the Pharmacist,  
+  2. <i>There exists a quantifiable, implicit cost associated with asymetric moral hazard</i> - because the legal risk of forgery is offloaded to the patient and/or doctor.  This truth is embodied through an anecdote told by 'the Pharmacist',  
   > "Based on how I am personally feeling, my relationship with the doctor, and how truthful I believe the patient is being, I may decide to call the perscribing doctor and verify the perscription."  
-  This illustrates the deficiency in <i>trust</i>, <i>verifiability</i>, and <i>finality</i> associated with the current system.
+  This illustrates the deficiency in <i><b>trust</b></i>, <i><b>verifiability</b></i>, and <i><b>finality</b></i> associated with the current system.
   
-  3. Transmission delays
+  3. Pharmacists face a 
   
 <b>How we created a better system:</b>
   1.  Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the DB.  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and cryptographic access permissions. 
