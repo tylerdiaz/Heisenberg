@@ -24,7 +24,7 @@ The defined roles for this project scenario are as follows:
  
 ## Blockchain Network Architecture
 <b>Project Heisenberg</b> is hosted on an Ethereum Consortium Network and is permissioned by a custom JSON genesis file.  The network id for peering is 347329323.  For this implementation, we configured five consortim members hosting nodes, with one hosted mining node per member.  We prefunded the addresses with  ether to remove the bottleneck associated with gas scarcity (i.e. DDoS is not a risk in a trusted consortium). In full production, the nodes would  be maintained by pre-authorized public hospitals, regulatory authorites, etc. 
-
+<i>
 A diagram of the azure-hosted architecture is shown below:
 
 ![ConsortiumArchitecture](https://github.com/tylerdiaz/Heisenberg/blob/master/brand-assests/Ethereum%20Consortium%20Architecture.PNG)
@@ -57,9 +57,9 @@ To better understand the current perscription paradigm, we consulted with an act
 <b>How we created a better system:</b>
   1.  <i>Our solution creates a decentralized, append-only data log where no single keyholder has root-access to the database.</i>  This means that no individual entity has the ability to alter the state history. We have solved the data-layer syncronization problem by creating a triple-entry accounting system where the system's integrity is grounded in both computional infeasability and consortium-level access-control permissions. 
   
-  2. <i>By leveraging the innate properties of the blockchain, we are able to create an auditable system of script ownership with verifiable ledger history and participant transaction finality.</i>
+  2. <i>By leveraging the innate properties of the blockchain, we are able to create an auditable system of script ownership with verifiable ledger history.</i> This allows for increased regulatory insight while also eliminating the base need for trust between doctors, patients, and pharmacists
   
-  3. 
+  3. <i>On the blockchain, transaction verification is instant.</i>  In addition, pharmacists recieve the assurance of cryptographic transaction finality reached in under 4 blocks (or ~8 minutes)
  
 ## Quantifing the Value of Our Solution
 - Quantifying implicit risk of moral hazard
